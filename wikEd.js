@@ -18254,7 +18254,12 @@ wikEd.AjaxRequest = function (requestMethod, requestUrl, postFields, overrideMim
 			formData = new window.FormData();
 			for (var fieldName in postFields) {
 				if (Object.prototype.hasOwnProperty.call(postFields, fieldName) === true) {
-					formData.append(fieldName, postFields[fieldName]);
+                    if (fieldName === 'title') {
+                        formData.append(fieldName, decodeURI(postFields[fieldName]));
+                    } else {
+                        formData.append(fieldName, postFields[fieldName]);
+                    }
+
 				}
 			}
 		}
