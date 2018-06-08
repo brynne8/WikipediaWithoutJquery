@@ -9,3 +9,5 @@ I assume you have an addon for blocking ads, i.e. Adblock, uBlock etc. Add a rul
 This will prevent jQuery from loading on Wikipedia.
 
 But we will face with some small problems. Like using gadgets and wikitext editor. But with jQuery disabled, we will find a lot of fxxking modules are not loaded, that what we are happy to see.
+
+According to [this MediaWiki page](https://www.mediawiki.org/wiki/JQuery), Wikipedia now uses ResourceLoader everywhere, so how could we work without it?
