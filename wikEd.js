@@ -1043,8 +1043,8 @@ wikEd.InitGlobalConfigs = function () {
 			76: ['wikEdDummy',            'wikEdButtonDummy',     '',                                               wikEd.config.image['dummy'],               '16', '16', '',                                             '' ],
 
 			// wikEd.InitButton: define built-in buttons (id, class, popup title, image src, width, height, alt text, click handler code were obj is the button element)
-			82: ['wikEdLocalPreview',     'wikEdLocalPreview',    wikEd.config.text['wikEdLocalPreview title'],     wikEd.config.image['preview'],             '16', '16', wikEd.config.text['wikEdLocalPreviewImg alt'],  'wikEd.Button(obj, obj.id);' ],
-			83: ['wikEdLocalDiff',        'wikEdLocalDiff',       wikEd.config.text['wikEdLocalDiff title'],        wikEd.config.image['diff'],                '16', '16', wikEd.config.text['wikEdLocalDiffImg alt'],     'wikEd.Button(obj, obj.id);' ],
+			82: ['wikEdLocalPreview',     'wikEdLocalPreview',    wikEd.config.text['wikEdLocalPreview title'],     wikEd.config.image['preview'],             '28', '28', wikEd.config.text['wikEdLocalPreviewImg alt'],  'wikEd.Button(obj, obj.id);' ],
+			83: ['wikEdLocalDiff',        'wikEdLocalDiff',       wikEd.config.text['wikEdLocalDiff title'],        wikEd.config.image['diff'],                '28', '28', wikEd.config.text['wikEdLocalDiffImg alt'],     'wikEd.Button(obj, obj.id);' ],
 
 			// pasted
 			85: ['wikEdPastedTextify',    'wikEdButtonInactive',  wikEd.config.text['wikEdPastedTextify title'],    wikEd.config.image['textify'],             '16', '16', wikEd.config.text['wikEdPastedTextify alt'],    'wikEd.EditButton(obj, obj.id);' ],
