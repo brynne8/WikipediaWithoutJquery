@@ -18,3 +18,8 @@ First, let's have a look at
 * http://youmightnotneedjquery.com/
 
 jQuery is an old library that considers many things like backward compatibility. But people like me hates wasting time by those polyfills. That's the reason I favor the implementation in [simplequery](https://github.com/AlexanderMisel/simplequery).
+
+## Using our own scripts
+Without jQuery, the ResourceLoader couldn't work, thus the js defined in our own common.js or global.js could work as well. So we'll use other options to inject our own scripts. My choice is [tampermonkey](http://tampermonkey.net/).
+
+Originally, I tried to use Greasemonkey, but it seems not working well with uBlock. Tampermonkey is a fine addon, compatible with Greasemonkey js format, and has localisations and better user interface.
