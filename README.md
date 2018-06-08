@@ -11,3 +11,10 @@ This will prevent jQuery from loading on Wikipedia.
 But we will face with some small problems. Like using gadgets and wikitext editor. But with jQuery disabled, we will find a lot of fxxking modules are not loaded, that what we are happy to see.
 
 According to [this MediaWiki page](https://www.mediawiki.org/wiki/JQuery), Wikipedia now uses ResourceLoader everywhere, so how could we work without it?
+
+## Why we remove jQuery
+First, let's have a look at
+* https://github.com/nefe/You-Dont-Need-jQuery
+* http://youmightnotneedjquery.com/
+
+jQuery is an old library that considers many things like backward compatibility. But people like me hates wasting time by those polyfills. That's the reason I favor the implementation in [simplequery](https://github.com/AlexanderMisel/simplequery).
