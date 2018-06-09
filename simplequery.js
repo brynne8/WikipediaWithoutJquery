@@ -579,6 +579,31 @@ $.extend($, {
 
 $('head').append('<style>.mw-collapsible-arrow.mw-collapsible-toggle-collapsed,.mw-icon-arrow-collapsed{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-collapsed-ltr.png?9fdfe);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M4 1.533v9.671l4.752-4.871z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-collapsible-arrow.mw-collapsible-toggle-expanded,.mw-icon-arrow-expanded{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-expanded.png?39834);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M1.165 3.624h9.671l-4.871 4.752z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-editfooter-toggler{cursor:pointer;background-position:left center;padding-left:16px}</style>');
 
+window.mw = {
+	config: {
+		set: function (data) {
+			$.each(data, function (key, value) {
+				window[key] = value;
+			});
+		}
+	},
+	loader: {
+		load: function (data) {
+			console.log(data);
+		},
+		state: function () {},
+		implement: function () {}
+	}
+};
+window.RLQ[0]();
+window.RLQ[1]();
+
+// If MathPlayer is installed we show the MathML rendering.
+if ( navigator.userAgent.indexOf( 'MathPlayer' ) > -1 ) {
+    $( '.mwe-math-mathml-a11y' ).removeClass( 'mwe-math-mathml-a11y' );
+    $( '.mwe-math-fallback-image-inline, .mwe-math-fallback-image-display' ).css( 'display', 'none' );
+}
+
 $('#preftoc li a').click(function () {
     if (!this.parentNode.className) {
         $($('#preftoc li.selected a').attr('href')).hide();
