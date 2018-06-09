@@ -18254,11 +18254,11 @@ wikEd.AjaxRequest = function (requestMethod, requestUrl, postFields, overrideMim
 			formData = new window.FormData();
 			for (var fieldName in postFields) {
 				if (Object.prototype.hasOwnProperty.call(postFields, fieldName) === true) {
-                    if (fieldName === 'title') {
-                        formData.append(fieldName, decodeURI(postFields[fieldName]));
-                    } else {
-                        formData.append(fieldName, postFields[fieldName]);
-                    }
+					if (fieldName === 'title') {
+						formData.append(fieldName, decodeURI(postFields[fieldName]));
+					} else {
+						formData.append(fieldName, postFields[fieldName]);
+					}
 
 				}
 			}
@@ -21433,14 +21433,14 @@ var WikEdDiff = function () {
 	/** Add messages to configuration settings. */
 
 	this.config.msg = {
-    'wiked-diff-empty': '(No difference)',
-    'wiked-diff-same':  '=',
-    'wiked-diff-ins':   '+',
-    'wiked-diff-del':   '-',
-    'wiked-diff-block-left':  '◀',
-    'wiked-diff-block-right': '▶',
-    'wiked-diff-block-left-nounicode':  '<',
-    'wiked-diff-block-right-nounicode': '>',
+		'wiked-diff-empty': '(No difference)',
+		'wiked-diff-same':  '=',
+		'wiked-diff-ins':   '+',
+		'wiked-diff-del':   '-',
+		'wiked-diff-block-left':  '◀',
+		'wiked-diff-block-right': '▶',
+		'wiked-diff-block-left-nounicode':  '<',
+		'wiked-diff-block-right-nounicode': '>',
 		'wiked-diff-error': 'Error: diff not consistent with versions!'
 	};
 
