@@ -634,7 +634,7 @@ $.extend($, {
 
 $('head').append('<style>.mw-collapsible-arrow.mw-collapsible-toggle-collapsed,.mw-icon-arrow-collapsed{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-collapsed-ltr.png?9fdfe);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M4 1.533v9.671l4.752-4.871z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-collapsible-arrow.mw-collapsible-toggle-expanded,.mw-icon-arrow-expanded{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-expanded.png?39834);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M1.165 3.624h9.671l-4.871 4.752z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-editfooter-toggler{cursor:pointer;background-position:left center;padding-left:16px}</style>');
 
-if (Array.isArray(window.RLQ)) {
+if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
     var tempMW = null;
     if (window.mw) {
         tempMW = window.mw;
@@ -694,9 +694,10 @@ if (Array.isArray(window.RLQ)) {
         }
     });
     // Used for keeping correct tls session cache
+    var refreshCount = 0;
     setInterval(function () {
         var lastTime = localStorage.getItem('lastCacheTime');
-        if (!lastTime || Date.now() - lastTime > 10000) {
+        if (!refreshCount || !lastTime || Date.now() - lastTime > 10000) {
             $.ajax( {
                 url: 'https://en.wikipedia.org/w/api.php',
                 data: {
@@ -711,6 +712,7 @@ if (Array.isArray(window.RLQ)) {
                 dataType: 'json'
             } ).done(function () {
                localStorage.setItem('lastCacheTime', Date.now());
+               refreshCount++
             });
         }
     }, 40000);
