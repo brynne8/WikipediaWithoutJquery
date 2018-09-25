@@ -693,27 +693,4 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
             $('.templatesUsed ul').hide();
         }
     });
-    // Used for keeping correct tls session cache
-    var refreshCount = 0;
-    setInterval(function () {
-        var lastTime = localStorage.getItem('lastCacheTime');
-        if (!refreshCount || !lastTime || Date.now() - lastTime > 10000) {
-            $.ajax( {
-                url: 'https://en.wikipedia.org/w/api.php',
-                data: {
-                    action: 'query',
-                    meta: 'userinfo',
-                    format: 'json',
-                    origin: 'https://zh.wikipedia.org'
-                },
-                xhrFields: {
-                    withCredentials: true
-                },
-                dataType: 'json'
-            } ).done(function () {
-               localStorage.setItem('lastCacheTime', Date.now());
-               refreshCount++
-            });
-        }
-    }, 40000);
 })();
