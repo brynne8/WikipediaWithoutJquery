@@ -667,12 +667,19 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
 
     $('#mw-searchButton').remove();
 
-    $('#preftoc li a').click(function () {
-        if (!this.parentNode.className) {
-            $($('#preftoc li.selected a').attr('href')).hide();
-            $('#preftoc li.selected').removeClass('selected');
-            this.parentNode.className = 'selected';
-            $(this.getAttribute('href')).show();
+    $('#preferences .oo-ui-menuLayout-content > .oo-ui-panelLayout-framed').addClass('oo-ui-element-hidden').removeClass('oo-ui-panelLayout-framed');
+    var activePref = window.location.hash.substr(1);
+    if (!activePref) {
+        activePref = 'mw-prefsection-personal';
+    }
+    $('#' + activePref).parent().parent().removeClass('oo-ui-element-hidden').addClass('oo-ui-tabPanelLayout-active');
+    $('#preferences .oo-ui-labelElement-label').click(function (e) {
+        var $node = $(this);
+        if (!$node.parent().hasClass('oo-ui-optionWidget-selected')) {
+            $('#preferences .oo-ui-optionWidget-selected').removeClass('oo-ui-optionWidget-selected');
+            $node.parent().addClass('oo-ui-optionWidget-selected');
+            $('#preferences .oo-ui-tabPanelLayout-active').removeClass('oo-ui-tabPanelLayout-active').addClass('oo-ui-element-hidden');
+            $($node.attr('href')).parent().parent().removeClass('oo-ui-element-hidden').addClass('oo-ui-tabPanelLayout-active');
         }
     });
 
