@@ -707,6 +707,15 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
         })
     }
 
+    $('.mw-rollback-link a').click(function (e) {
+        var summary = prompt('Summary:');
+        if (summary === null) {
+            e.preventDefault();
+        } else {
+            this.href += '&summary=' + encodeURIComponent(summary);
+        }
+    });
+
     // Editing related
     $('#wpSummaryLabel .mw-summary-preset').on('click', '.mw-summary-preset-item a', function (e) {
         e.preventDefault();
