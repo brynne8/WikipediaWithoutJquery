@@ -689,24 +689,36 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
     $('.mw-collapsible').click(function () {
         var $node = $(this);
         if ($node.hasClass('mw-collapsed')) {
-            $node.removeClass('mw-collapsed')
+            $node.removeClass('mw-collapsed');
         } else {
-            $node.addClass('mw-collapsed')
+            $node.addClass('mw-collapsed');
         }
     })
 
+    if ($('#mw-input-wpExpiry').length) {
+        $('input[name="wpExpiry-other"]').parent().hide();
+        $('input[name="wpExpiry-other"]').removeAttr('required');
+        $('select[name="wpExpiry"]').on('change', function () {
+            if (this.value === 'other') {
+                $('input[name="wpExpiry-other"]').parent().removeAttr('style');
+            } else {
+                $('input[name="wpExpiry-other"]').parent().hide();
+            }
+        })
+    }
+
     // Editing related
-    $( '#wpSummaryLabel .mw-summary-preset' ).on( 'click', '.mw-summary-preset-item a', function( e ) {
+    $('#wpSummaryLabel .mw-summary-preset').on('click', '.mw-summary-preset-item a', function (e) {
         e.preventDefault();
         var $node = $(this);
         var $item = $node.parent();
         var summary = $('#wpSummary').val();
-        if ( summary != '' ) {
+        if (summary != '') {
             summary += ' ';
         }
-        summary += $item.attr( 'title' ) || $node.text();
+        summary += $item.attr('title') || $node.text();
         $('#wpSummary').val(summary)
-    } );
+    });
 
     $('.mw-templatesUsedExplanation')
         .attr('role', 'button')
