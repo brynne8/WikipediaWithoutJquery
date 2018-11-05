@@ -660,7 +660,7 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
 
 (function () {
     // If MathPlayer is installed we show the MathML rendering.
-    if ( navigator.userAgent.indexOf( 'MathPlayer' ) > -1 ) {
+    if ( navigator.userAgent.indexOf( 'Firefox' ) > -1 ) {
         $( '.mwe-math-mathml-a11y' ).removeClass( 'mwe-math-mathml-a11y' );
         $( '.mwe-math-fallback-image-inline, .mwe-math-fallback-image-display' ).css( 'display', 'none' );
     }
@@ -675,7 +675,7 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
             activePref = 'mw-prefsection-personal';
         }
         $('#' + activePref).parent().parent().removeClass('oo-ui-element-hidden').addClass('oo-ui-tabPanelLayout-active');
-        $('#preferences .oo-ui-labelElement-label').click(function () {
+        $('#preferences .oo-ui-menuLayout-menu .oo-ui-labelElement-label').click(function () {
             var $node = $(this);
             if (!$node.parent().hasClass('oo-ui-optionWidget-selected')) {
                 $('#preferences .oo-ui-optionWidget-selected').removeClass('oo-ui-optionWidget-selected');
