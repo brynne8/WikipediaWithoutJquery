@@ -326,6 +326,15 @@ wikEd.InitGlobalConfigs = function () {
 // hiding buttons
 			'hideRef':                     '参',
 			'hideTempl':                   '模',
+			'hideTable':                   '',
+
+// hiding buttons, details
+			'hideTableStart':              '表',
+			'hideTableEnd':                '表结束',
+			'hideTableCaption':            '说明文字',
+			'hideTableRow':                '行',
+			'hideTableHeader':             '表头',
+			'hideTableCell':               '单元格',
 
 // shortened button texts
 			'shortenedPreview':            '显示预览',
