@@ -49,6 +49,7 @@ var WikEdDiff;
 //
 
 wikEd.InitGlobalConfigs = function () {
+    wikEd.config.autoUpdate = false;
 
 	// user readable texts, copy changes to https://en.wikipedia.org/wiki/User:Cacycle/wikEd_international_en.js, also defined in wikEdDiff.js
 	if (wikEd.config.text === undefined) { wikEd.config.text = {}; }
@@ -8719,7 +8720,7 @@ wikEd.LocalPreviewAjaxHandler = function ( ajax ) {
 	html = html.replace( /<input\b([^>]*)>/gi,
 		function( p, p1 ) {
 			p1 = p1.replace( /\bname\s*=\s*([^"'`=]+|\'[^'=]*\'|\"[^"=]*\")/gi, '' );
-			return p1;
+			return `<input${p1}>`;
 		}
 	);
 
