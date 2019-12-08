@@ -703,8 +703,10 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
         });
     }
 
-    $('.mw-collapsible').click(function () {
-        var $node = $(this);
+    $('.mw-collapsible .mw-collapsible-toggle').parent().addClass('has-toggle');
+
+    $('.mw-collapsible-toggle, .mw-collapsible:not(.has-toggle) > *:first-child').click(function (e) {
+        var $node = $(this).parent();
         $node.toggleClass('mw-collapsed');
     });
 
