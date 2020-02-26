@@ -18285,7 +18285,7 @@ wikEd.AjaxRequest = function (requestMethod, requestUrl, postFields, overrideMim
 		// workaround for Error: Greasemonkey access violation: unsafeWindow cannot call GM_xmlhttpRequest.
 		// see http://wiki.greasespot.net/Greasemonkey_access_violation
 		window.setTimeout(function() {
-			new GM_xmlhttpRequest({
+			GM_xmlhttpRequest({
 				'method':  requestMethod,
 				'url':     requestUrl,
 				'overrideMimeType': overrideMimeType,
