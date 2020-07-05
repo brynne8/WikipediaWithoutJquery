@@ -516,7 +516,7 @@ var WikEdDiff = function () {
 	/** Add messages to configuration settings. */
 
 	this.config.msg = {
-		'wiked-diff-empty': '(No difference)',
+		'wiked-diff-empty': '(无差异)',
 		'wiked-diff-same':  '=',
 		'wiked-diff-ins':   '+',
 		'wiked-diff-del':   '-',
@@ -7884,7 +7884,7 @@ wikEd.TurnOn = function (scrollToEditFocus) {
 		}
 
 		// add local diff button next to submit button
-		if ( ( (wikEd.diffPreviewButton !== null) || (wikEd.editWatchlist === true) ) && (wikEd.readOnly === false) ) {
+		if ( ( previewSpan || wikEd.diffPreviewButton || wikEd.editWatchlist ) && !wikEd.readOnly ) {
 			var diffSpan = document.createElement('span');
 			diffSpan.innerHTML = wikEd.MakeButtonCode(83, 'button');
 			if (wikEd.diffPreviewButton !== null) {
