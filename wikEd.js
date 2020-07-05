@@ -14,7 +14,6 @@
 // @match       https://*.wikipedia.org/*
 // @grant       GM_getValue
 // @grant       GM_xmlhttpRequest
-// @require     tampermonkey://userscripts/wikEd_diff.user.js
 // ==/UserScript==
 
 wikEd is a full-featured edit page text editor for regular to advanced users on Wikipedia and other MediaWikis.
