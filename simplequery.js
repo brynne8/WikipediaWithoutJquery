@@ -632,7 +632,7 @@ $.extend($, {
     }
 });
 
-$('head').append('<style>.mw-content-ltr{text-align:justify;hyphens:auto}.mw-collapsible-arrow.mw-collapsible-toggle-collapsed,.mw-icon-arrow-collapsed{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-collapsed-ltr.png?9fdfe);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M4 1.533v9.671l4.752-4.871z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-collapsible-arrow.mw-collapsible-toggle-expanded,.mw-icon-arrow-expanded{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-expanded.png?39834);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M1.165 3.624h9.671l-4.871 4.752z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-editfooter-toggler{cursor:pointer;background-position:left center;padding-left:16px}.mw-collapsible:before{pointer-events:none}.client-js td.mw-collapsible:not(.mw-collapsed):before,.client-js table.mw-collapsible:not(.mw-collapsed):first-child tr:first-child th:last-child:before,.client-js table.mw-collapsible:not(.mw-collapsed) > caption:first-child:after,.client-js div.mw-collapsible:not(.mw-collapsed):before{content:"[折叠]"}.NavFrame.collapsed .NavContent{display:none;}.NavHead{font-weight:bold;cursor:pointer;}</style>');
+$('head').append('<style>.mw-content-ltr{text-align:justify;hyphens:auto}.mw-collapsible-arrow.mw-collapsible-toggle-collapsed,.mw-icon-arrow-collapsed{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-collapsed-ltr.png?9fdfe);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M4 1.533v9.671l4.752-4.871z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-collapsible-arrow.mw-collapsible-toggle-expanded,.mw-icon-arrow-expanded{background-image:url(/w/resources/src/mediawiki.icon/images/arrow-expanded.png?39834);background-image:linear-gradient(transparent,transparent),url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22%3E %3Cpath fill=%22%2372777d%22 d=%22M1.165 3.624h9.671l-4.871 4.752z%22/%3E %3C/svg%3E");background-repeat:no-repeat;background-position:left bottom}.mw-editfooter-toggler{cursor:pointer;background-position:left center;padding-left:16px}.client-js td.mw-collapsible:not(.mw-collapsed):before,.client-js table.mw-collapsible:not(.mw-collapsed):first-child tr:first-child th:last-child:before,.client-js table.mw-collapsible:not(.mw-collapsed) > caption:first-child:after,.client-js div.mw-collapsible:not(.mw-collapsed):before{content:"[折叠]"}.NavFrame.collapsed .NavContent{display:none;}.NavHead{font-weight:bold;cursor:pointer;}</style>');
 
 if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
     var tempMW = null;
@@ -703,8 +703,12 @@ if (Array.isArray(window.RLQ) && window.RLQ.length > 1) {
         });
     }
 
-    $('.mw-collapsible > :not(.mw-collapsible-content)').click(function () {
-        $(this).parent().toggleClass('mw-collapsed');
+    $('.mw-collapsible .mw-collapsible-content').click(function (e) {
+        e.stopPropagation();
+    });
+
+    $('.mw-collapsible').click(function () {
+        $(this).toggleClass('mw-collapsed');
     });
 
     $('.NavFrame .NavHead').click(function () {
